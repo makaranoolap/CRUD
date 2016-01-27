@@ -1,3 +1,3 @@
-// Meteor.publish('images', function (){ 
-//   return images.find({});
-// });
+Meteor.publish('crud', function (){ 
+  return crud.find({});
+});

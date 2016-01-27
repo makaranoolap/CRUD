@@ -1,1 +1,1 @@
-//Meteor.subscribe("users");
+Meteor.subscribe("crud");
