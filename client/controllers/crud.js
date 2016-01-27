@@ -8,22 +8,35 @@ Template.home.events({
 			description:description
 		}
 		if(this._id){
-			
+			//update data
 			Meteor.call('update',this._id,obj);
+			Router.go('/');
 		}else{
+			//insert data
 			Meteor.call('insertCrud',obj);
 		}
 		e.target.title.value="";//clear form
 		e.target.description.value="";//clear form
 	},
 	'click #remove':function(e){
-		alert();
 		e.preventDefault();
-		crud.remove(this._id);
+		var result=confirm('Do you want to delete?');
+		if(result){
+			crud.remove(this._id);
+		}
+		
+		
 	}
 })
 Template.home.helpers({
 	getData:function(){
 		return crud.find();
+	},
+	updateTitle:function(){
+		if(this._id){
+			return true;
+		}else{
+			return false;
+		}
 	}
 })
